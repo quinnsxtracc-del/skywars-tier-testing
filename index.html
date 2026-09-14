@@ -6,16 +6,16 @@
   <title>SkyWars Tier Testing</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --bg: #080b14;
       --panel: #101522;
-      --panel2: #151b2b;
       --border: #242c40;
       --text: #f5f7ff;
       --muted: #8992aa;
       --purple: #8b5cf6;
-      --purple2: #6d3ee8;
     }
+
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
@@ -27,118 +27,301 @@
       color: var(--text);
       min-height: 100vh;
     }
+
     a { color: inherit; text-decoration: none; }
+
     nav {
-      height: 70px; border-bottom: 1px solid var(--border);
-      background: rgba(8,11,20,.82); backdrop-filter: blur(14px);
-      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8,11,20,.82);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 6%;
-      position: sticky; top: 0; z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.3px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+    }
+
     .logo {
-      width: 38px; height: 38px; border-radius: 10px;
-      display: grid; place-items: center; background: linear-gradient(135deg, var(--purple), #4f2bb4);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--purple), #4f2bb4);
       box-shadow: 0 8px 30px rgba(139,92,246,.28);
       font-size: 20px;
     }
-    .navlinks { display: flex; gap: 26px; color: var(--muted); font-size: 14px; font-weight: 600; }
+
+    .navlinks {
+      display: flex;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .navlinks a:hover { color: white; }
+
     .discord {
-      padding: 10px 15px; border: 1px solid var(--border); border-radius: 9px;
-      background: var(--panel); color: #fff; font-size: 13px; font-weight: 700;
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--panel);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
     }
-    .hero { max-width: 1050px; margin: 0 auto; padding: 92px 24px 54px; text-align: center; }
+
+    .hero {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 92px 24px 54px;
+      text-align: center;
+    }
+
     .eyebrow {
-      display: inline-flex; gap: 8px; align-items: center; color: #b9a5ff;
-      background: rgba(139,92,246,.1); border: 1px solid rgba(139,92,246,.25);
-      padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: #b9a5ff;
+      background: rgba(139,92,246,.1);
+      border: 1px solid rgba(139,92,246,.25);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
     }
-    h1 { font-size: clamp(42px, 7vw, 76px); line-height: .98; margin: 22px 0 18px; letter-spacing: -3px; }
-    .gradient { background: linear-gradient(90deg, #fff, #b99cff); -webkit-background-clip: text; color: transparent; }
-    .hero p { max-width: 610px; margin: auto; color: var(--muted); font-size: 16px; line-height: 1.7; }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+      margin: 22px 0 18px;
+      letter-spacing: -3px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, #b99cff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 610px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
     .search {
-      max-width: 620px; margin: 30px auto 0; display: flex; align-items: center;
-      background: rgba(16,21,34,.95); border: 1px solid var(--border); border-radius: 12px;
-      padding: 5px; box-shadow: 0 15px 50px rgba(0,0,0,.25);
+      max-width: 620px;
+      margin: 30px auto 0;
+      display: flex;
+      align-items: center;
+      background: rgba(16,21,34,.95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 5px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.25);
     }
-    .search span { padding: 0 12px; color: var(--muted); }
+
+    .search span {
+      padding: 0 12px;
+      color: var(--muted);
+    }
+
     .search input {
-      flex: 1; border: 0; outline: 0; background: transparent; color: white;
-      padding: 13px 4px; font-size: 14px;
+      flex: 1;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white;
+      padding: 13px 4px;
+      font-size: 14px;
     }
+
     .search button {
-      border: 0; border-radius: 8px; padding: 11px 17px; background: var(--purple);
-      color: white; font-weight: 800; cursor: pointer;
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 17px;
+      background: var(--purple);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
     }
-    main { max-width: 1050px; margin: auto; padding: 0 24px 70px; }
-    .section-head { display: flex; justify-content: space-between; align-items: end; margin: 15px 0 18px; }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 0 24px 70px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin: 15px 0 18px;
+    }
+
     .section-head h2 { font-size: 24px; }
-    .section-head p { color: var(--muted); font-size: 13px; margin-top: 5px; }
-    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-    .tab {
-      padding: 9px 13px; border: 1px solid var(--border); border-radius: 8px;
-      background: var(--panel); color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 700;
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
     }
-    .tab.active { color: white; background: rgba(139,92,246,.17); border-color: rgba(139,92,246,.55); }
+
     .table {
-      border: 1px solid var(--border); background: rgba(16,21,34,.88); border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(16,21,34,.88);
+      border-radius: 14px;
+      overflow: hidden;
     }
+
     .row {
-      display: grid; grid-template-columns: 60px minmax(180px, 1fr) 100px 110px;
-      align-items: center; gap: 16px; padding: 15px 20px; border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 60px minmax(180px, 1fr) 100px 110px;
+      align-items: center;
+      gap: 16px;
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border);
     }
+
     .row:last-child { border-bottom: 0; }
-    .header { color: #68728b; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; }
-    .rank { color: #8e98b0; font-weight: 800; }
-    .player { display: flex; align-items: center; gap: 13px; }
-    .skin {
-      width: 42px; height: 42px; border-radius: 9px; display: grid; place-items: center;
-      background: linear-gradient(145deg, #303b54, #151b2b); border: 1px solid var(--border); font-size: 21px;
+
+    .header {
+      color: #68728b;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
     }
-    .name { font-weight: 800; font-size: 14px; }
-    .sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
-    .region { color: #aeb6ca; font-size: 12px; font-weight: 700; }
+
+    .rank {
+      color: #8e98b0;
+      font-weight: 800;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .name {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .region {
+      color: #aeb6ca;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
     .tier {
-      justify-self: start; min-width: 52px; text-align: center; padding: 7px 9px; border-radius: 7px;
-      background: rgba(139,92,246,.14); border: 1px solid rgba(139,92,246,.35);
-      color: #c9b7ff; font-size: 12px; font-weight: 900;
+      justify-self: start;
+      min-width: 52px;
+      text-align: center;
+      padding: 7px 9px;
+      border-radius: 7px;
+      background: rgba(139,92,246,.14);
+      border: 1px solid rgba(139,92,246,.35);
+      color: #c9b7ff;
+      font-size: 12px;
+      font-weight: 900;
     }
-    .footer { text-align: center; color: #606a82; font-size: 12px; padding-top: 22px; }
+
+    .footer {
+      text-align: center;
+      color: #606a82;
+      font-size: 12px;
+      padding-top: 22px;
+    }
+
     @media (max-width: 700px) {
       nav { padding: 0 18px; }
       .navlinks { display: none; }
       .hero { padding-top: 70px; }
-      .row { grid-template-columns: 35px 1fr 60px; padding: 13px 12px; }
-      .row > .region, .header > .region { display: none; }
-      .header { grid-template-columns: 35px 1fr 60px; }
+
+      .row {
+        grid-template-columns: 35px 1fr 60px;
+        padding: 13px 12px;
+      }
+
+      .row > .region,
+      .header > .region {
+        display: none;
+      }
+
+      .header {
+        grid-template-columns: 35px 1fr 60px;
+      }
+
       h1 { letter-spacing: -2px; }
     }
   </style>
 </head>
+
 <body>
+
   <nav>
-    <a class="brand" href="#"><div class="logo">⚔</div><span>SkyWars Tier Testing</span></a>
+    <a class="brand" href="#">
+      <div class="logo">⚔</div>
+      <span>SkyWars Tier Testing</span>
+    </a>
+
     <div class="navlinks">
       <a href="#rankings">Rankings</a>
       <a href="#">Testing</a>
       <a href="#">Information</a>
     </div>
+
     <a class="discord" href="#">Discord</a>
   </nav>
 
   <section class="hero">
     <div class="eyebrow">⚔ SKY WARS • TIER TESTING</div>
-    <h1><span class="gradient">Prove your place.</span></h1>
-    <p>SkyWars Tier Testing is a competitive ranking system for SkyWars players. Get tested, earn your tier, and see where you stand.</p>
+
+    <h1>
+      <span class="gradient">Prove your place.</span>
+    </h1>
+
+    <p>
+      SkyWars Tier Testing is a competitive ranking system for SkyWars players.
+      Get tested, earn your tier, and see where you stand.
+    </p>
+
     <div class="search">
       <span>⌕</span>
-      <input id="search" placeholder="Search a Minecraft username..." oninput="filterPlayers()">
+      <input
+        id="search"
+        placeholder="Search a Minecraft username..."
+        oninput="filterPlayers()"
+      >
       <button onclick="filterPlayers()">Search</button>
     </div>
   </section>
 
   <main id="rankings">
+
     <div class="section-head">
       <div>
         <h2>SkyWars Rankings</h2>
@@ -147,40 +330,79 @@
     </div>
 
     <div class="table">
+
       <div class="row header">
-        <div>#</div><div>Player</div><div class="region">Region</div><div>Tier</div>
+        <div>#</div>
+        <div>Player</div>
+        <div class="region">Region</div>
+        <div>Tier</div>
       </div>
+
       <div id="players"></div>
+
     </div>
-    <div class="footer">SkyWars Tier Testing • Built for competitive SkyWars</div>
+
+    <div class="footer">
+      SkyWars Tier Testing • Built for competitive SkyWars
+    </div>
+
   </main>
 
-<script>
-const players = [
-  {name:"Dreamer", region:"NA", tier:"HT1", icon:"🧑"},
-  {name:"SkyKing", region:"EU", tier:"HT1", icon:"👤"},
-  {name:"Void", region:"NA", tier:"HT2", icon:"🧑‍🎤"},
-  {name:"Clutch", region:"AS", tier:"HT2", icon:"👤"},
-  {name:"Bedrock", region:"EU", tier:"HT3", icon:"🧑"},
-  {name:"Ender", region:"NA", tier:"HT3", icon:"👤"},
-  {name:"Aether", region:"EU", tier:"HT4", icon:"🧑‍🎤"},
-  {name:"Rush", region:"NA", tier:"LT1", icon:"👤"}
-];
+  <script>
+    /*
+      ============================
+      EDIT YOUR PLAYERS HERE
+      ============================
 
-function render(list = players) {
-  document.getElementById("players").innerHTML = list.map((p,i) => `
-    <div class="row">
-      <div class="rank">${i+1}</div>
-      <div class="player"><div class="skin">${p.icon}</div><div><div class="name">${p.name}</div><div class="sub">SkyWars tester ranking</div></div></div>
-      <div class="region">${p.region}</div>
-      <div class="tier">${p.tier}</div>
-    </div>`).join("");
-}
-function filterPlayers() {
-  const q = document.getElementById("search").value.toLowerCase();
-  render(players.filter(p => p.name.toLowerCase().includes(q)));
-}
-render();
-</script>
+      To add a player, copy one of the lines below.
+
+      name   = Minecraft username
+      region = player region
+      tier   = SkyWars tier
+    */
+
+    const players = [
+      { name: "Fqxtails",     region: "NA", tier: "LT2" },
+      { name: "ItsDarkingXD",     region: "SA", tier: "HT3" },
+      { name: "Maust111",        region: "NA", tier: "LT3" },
+      { name: "Mrbonkeymutt",      region: "NA", tier: "LT4" },
+     
+    ];
+
+    function render(list = players) {
+      document.getElementById("players").innerHTML = list.map((player, index) => `
+        <div class="row">
+          <div class="rank">${index + 1}</div>
+
+          <div class="player">
+            <div>
+              <div class="name">${player.name}</div>
+              <div class="sub">SkyWars tier testing</div>
+            </div>
+          </div>
+
+          <div class="region">${player.region}</div>
+
+          <div class="tier">${player.tier}</div>
+        </div>
+      `).join("");
+    }
+
+    function filterPlayers() {
+      const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      const filtered = players.filter(player =>
+        player.name.toLowerCase().includes(search)
+      );
+
+      render(filtered);
+    }
+
+    render();
+  </script>
+
 </body>
 </html>

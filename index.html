@@ -94,7 +94,7 @@
     }
     .mode-circle img { width: 100%; height: 100%; object-fit: cover; }
     .mode-circle img[src=""] { display: none; }
-    .mode-circle .placeholder { font-size: 20px; line-height: 1; }
+    .mode-circle .placeholder { font-size: 18px; line-height: 1; }
     .mode-circle .placeholder-default { font-size: 13px; color: #666477; }
     .tier { font-size: 11px; font-weight: 900; color: #b89cff; }
     .empty { display: none; }
@@ -200,7 +200,7 @@
         const tier = player.tiers?.[i] || "";
 
         if (i === 0) {
-          // Slot 1: Emoji icon with "text" label above it
+          // Slot 1: White Circle Emoji
           modes += `
             <div class="mode">
               <div class="mode-label">text</div>
@@ -210,8 +210,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 1) {
+          // Slot 2: Sword Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">⚔️</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 2-12: Standard image slots
+          // Slots 3-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

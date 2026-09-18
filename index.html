@@ -95,9 +95,7 @@
     .mode-circle img { width: 100%; height: 100%; object-fit: cover; }
     .mode-circle img[src=""] { display: none; }
     .mode-circle .placeholder { font-size: 18px; line-height: 1; }
-    .mode-circle .placeholder-default { font-size: 13px; color: #666477; }
     .tier { font-size: 11px; font-weight: 900; color: #b89cff; }
-    .empty { display: none; }
     footer { padding: 28px 7%; border-top: 1px solid rgba(255, 255, 255, 0.07); color: #686675; text-align: center; font-size: 13px; }
     @media(max-width:1050px){
       .identity { min-width: 300px; } .tiers { gap: 5px; } .mode { width: 43px; } .mode-circle { width: 34px; height: 34px; }
@@ -154,34 +152,30 @@
   </footer>
 
   <script>
-    const players = [
+    let players = [
       {
-        name: "Dreamer",
+        name: "fqxtails",
         region: "NA",
         avatar: "",
-        tiers: ["HT1","HT1","HT1","HT1","HT1","HT2","HT2","HT2","HT3","HT3","HT4","LT1"],
-        images: ["","","","","","","","","","","",""]
+        tiers: ["-","-","-","-","-","-","-","-","-","-","-","-"]
       },
       {
-        name: "SkyKing",
+        name: "Itsdarkingxd",
         region: "EU",
         avatar: "",
-        tiers: ["HT1","HT1","HT2","HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1"],
-        images: ["","","","","","","","","","","",""]
+        tiers: ["-","-","-","-","-","-","-","-","-","-","-","-"]
       },
       {
-        name: "Void",
+        name: "Maust111",
         region: "NA",
         avatar: "",
-        tiers: ["HT2","HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1","LT2","LT2"],
-        images: ["","","","","","","","","","","",""]
+        tiers: ["-","-","-","-","-","-","-","-","-","-","-","-"]
       },
       {
-        name: "Clutch",
+        name: "Mrbonkeymutt",
         region: "AS",
         avatar: "",
-        tiers: ["HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1","LT2","LT2","LT3"],
-        images: ["","","","","","","","","","","",""]
+        tiers: ["-","-","-","-","-","-","-","-","-","-","-","-"]
       }
     ];
 
@@ -194,18 +188,8 @@
         : `<span>◈</span>`;
 
       const modeLabels = [
-        "skywars",
-        "sword",
-        "axe",
-        "potion",
-        "smp",
-        "tntcart",
-        "UHC",
-        "battlerush",
-        "sumo",
-        "boxing",
-        "crystal",
-        "mace"
+        "skywars", "sword", "axe", "potion", "smp", "tntcart",
+        "UHC", "battlerush", "sumo", "boxing", "crystal", "mace"
       ];
 
       const emojis = [
@@ -215,7 +199,7 @@
       let modes = "";
 
       for (let i = 0; i < 12; i++) {
-        const tier = player.tiers?.[i] || "";
+        const tier = player.tiers?.[i] || "-";
         const label = modeLabels[i];
         const emoji = emojis[i];
 

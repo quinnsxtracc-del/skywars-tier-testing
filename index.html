@@ -320,12 +320,13 @@
               <div class="tier">${tier}</div>
             </div>
           `;
-        } else {
-          // Slot 12: Standard slot
+        } else if (i === 11) {
+          // Slot 12: Hammer Emoji
           modes += `
             <div class="mode">
+              <div class="mode-label">text</div>
               <div class="mode-circle">
-                ${image ? `<img src="${image}" alt="">` : `<span class="placeholder-default">●</span>`}
+                <span class="placeholder">🔨</span>
               </div>
               <div class="tier">${tier}</div>
             </div>

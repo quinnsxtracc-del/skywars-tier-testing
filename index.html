@@ -1,407 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkyWars Tier Testing</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    :root {
-      --bg: #080b14;
-      --panel: #101522;
-      --border: #242c40;
-      --text: #f5f7ff;
-      --muted: #8992aa;
-      --purple: #8b5cf6;
+<title>SkyWars Tier Testing</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #f4f1ff;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(123, 75, 255, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        #080914;
+
+    background-size:
+        auto,
+        32px 32px,
+        32px 32px;
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 72px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+
+    background: rgba(8,9,20,0.82);
+
+    backdrop-filter: blur(14px);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-weight: 800;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #5b21b6
+        );
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,0.25);
+}
+
+.links {
+    display: flex;
+    gap: 28px;
+}
+
+.links a {
+    color: #aaa8b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links a:hover {
+    color: white;
+}
+
+/* MAIN */
+
+main {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 90px 0 60px;
+}
+
+.eyebrow {
+    color: #9b7cff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(
+        48px,
+        7vw,
+        82px
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin: 24px auto 0;
+
+    color: #9d9bab;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+/* GAMEMODES */
+
+.modes-section {
+    padding: 20px 0 90px;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: #858392;
+}
+
+.modes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+/* CARD */
+
+.mode-card {
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    background:
+        rgba(17,18,32,0.72);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,0.18);
+
+    transition:
+        0.2s ease;
+}
+
+.mode-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(139,92,246,0.45);
+
+    box-shadow:
+        0 18px 50px
+        rgba(84,42,180,0.14);
+}
+
+/* CIRCLE */
+
+.circle {
+    width: 112px;
+    height: 112px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius: 50%;
+
+    border:
+        2px dashed
+        rgba(155,124,255,0.65);
+
+    background:
+        rgba(139,92,246,0.08);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/*
+   If you don't have an image yet,
+   the circle stays as an empty placeholder.
+*/
+
+.circle img[src=""] {
+    display: none;
+}
+
+.circle span {
+    position: absolute;
+
+    color: #777486;
+
+    font-size: 12px;
+
+    pointer-events: none;
+}
+
+/* TEXT AREA */
+
+.mode-card h3 {
+    margin:
+        0 0 9px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    color: #e8e4f5;
+}
+
+.mode-card p {
+    margin: 0;
+
+    min-height: 74px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: #8f8c9d;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    text-align: center;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 28px 7%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    color: #686675;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+
+    .modes {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 50% -10%, rgba(111, 63, 232, .22), transparent 35%),
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
-        var(--bg);
-      background-size: auto, 48px 48px, 48px 48px, auto;
-      color: var(--text);
-      min-height: 100vh;
+    .links {
+        display: none;
     }
+}
 
-    a { color: inherit; text-decoration: none; }
+/* PHONE */
 
-    nav {
-      height: 70px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(8,11,20,.82);
-      backdrop-filter: blur(14px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+@media (max-width: 520px) {
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -.3px;
-    }
-
-    .logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--purple), #4f2bb4);
-      box-shadow: 0 8px 30px rgba(139,92,246,.28);
-      font-size: 20px;
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 26px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .navlinks a:hover { color: white; }
-
-    .discord {
-      padding: 10px 15px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--panel);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .hero {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 92px 24px 54px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: #b9a5ff;
-      background: rgba(139,92,246,.1);
-      border: 1px solid rgba(139,92,246,.25);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
+    .modes {
+        grid-template-columns: 1fr;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: .98;
-      margin: 22px 0 18px;
-      letter-spacing: -3px;
+        letter-spacing: -2px;
     }
 
-    .gradient {
-      background: linear-gradient(90deg, #fff, #b99cff);
-      -webkit-background-clip: text;
-      color: transparent;
+    .hero {
+        padding-top: 65px;
     }
-
-    .hero p {
-      max-width: 610px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    .search {
-      max-width: 620px;
-      margin: 30px auto 0;
-      display: flex;
-      align-items: center;
-      background: rgba(16,21,34,.95);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 5px;
-      box-shadow: 0 15px 50px rgba(0,0,0,.25);
-    }
-
-    .search span {
-      padding: 0 12px;
-      color: var(--muted);
-    }
-
-    .search input {
-      flex: 1;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      color: white;
-      padding: 13px 4px;
-      font-size: 14px;
-    }
-
-    .search button {
-      border: 0;
-      border-radius: 8px;
-      padding: 11px 17px;
-      background: var(--purple);
-      color: white;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 0 24px 70px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin: 15px 0 18px;
-    }
-
-    .section-head h2 { font-size: 24px; }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 5px;
-    }
-
-    .table {
-      border: 1px solid var(--border);
-      background: rgba(16,21,34,.88);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 60px minmax(180px, 1fr) 100px 110px;
-      align-items: center;
-      gap: 16px;
-      padding: 15px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .row:last-child { border-bottom: 0; }
-
-    .header {
-      color: #68728b;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 800;
-    }
-
-    .rank {
-      color: #8e98b0;
-      font-weight: 800;
-    }
-
-    .player {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .name {
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .sub {
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 3px;
-    }
-
-    .region {
-      color: #aeb6ca;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .tier {
-      justify-self: start;
-      min-width: 52px;
-      text-align: center;
-      padding: 7px 9px;
-      border-radius: 7px;
-      background: rgba(139,92,246,.14);
-      border: 1px solid rgba(139,92,246,.35);
-      color: #c9b7ff;
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .footer {
-      text-align: center;
-      color: #606a82;
-      font-size: 12px;
-      padding-top: 22px;
-    }
-
-    @media (max-width: 700px) {
-      nav { padding: 0 18px; }
-      .navlinks { display: none; }
-      .hero { padding-top: 70px; }
-
-      .row {
-        grid-template-columns: 35px 1fr 60px;
-        padding: 13px 12px;
-      }
-
-      .row > .region,
-      .header > .region {
-        display: none;
-      }
-
-      .header {
-        grid-template-columns: 35px 1fr 60px;
-      }
-
-      h1 { letter-spacing: -2px; }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <a class="brand" href="#">
-      <div class="logo">⚔</div>
-      <span>SkyWars Tier Testing</span>
-    </a>
+<!-- NAVIGATION -->
 
-    <div class="navlinks">
-      <a href="#rankings"></a>
-      <a href="#"></a>
-      <a href="#"></a>
+<nav>
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            ⚔
+        </div>
+
+        <span>
+            SkyWars Tier Testing
+        </span>
+
     </div>
 
-    <a class="discord" href="#">subscribe to @mrbonkeymutt</a>
-  </nav>
+    <div class="links">
 
-  <section class="hero">
-    <div class="eyebrow"> SKYWARS TIER TESTING</div>
+        <a href="#modes">
+            Gamemodes
+        </a>
+
+        <a href="#info">
+            Information
+        </a>
+
+        <a href="#discord">
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        ⚔ SKY WARS • TIER TESTING
+    </div>
 
     <h1>
-      <span class="gradient">Skywars tier testing</span>
+        Choose a gamemode.
     </h1>
 
     <p>
-      SkyWars Tier Testing is a competitive ranking system for SkyWars players.
-      Get tested, earn your tier, and see where you stand.
+        Select one of the available gamemode slots below.
+        Each slot can have its own image and description.
     </p>
 
-    <div class="search">
-      <span>⌕</span>
-      <input
-        id="search"
-        placeholder="Search a Minecraft username..."
-        oninput="filterPlayers()"
-      >
-      <button onclick="filterPlayers()">Search</button>
-    </div>
-  </section>
+</section>
 
-  <main id="rankings">
 
-    <div class="section-head">
-      <div>
-        <h2>SkyWars Rankings</h2>
-        <p>Players ranked by their current SkyWars tier.</p>
-      </div>
-    </div>
+<!-- GAMEMODE SECTION -->
 
-    <div class="table">
+<section
+    class="modes-section"
+    id="modes"
+>
 
-      <div class="row header">
-        <div>#</div>
-        <div>Player</div>
-        <div class="region">Region</div>
-        <div>Tier</div>
-      </div>
+    <div class="section-heading">
 
-      <div id="players"></div>
+        <h2>
+            Gamemodes
+        </h2>
+
+        <p>
+            12 customizable gamemode slots.
+        </p>
 
     </div>
 
-    <div class="footer">
-      SkyWars Tier Testing • Built for competitive SkyWars
-    </div>
 
-  </main>
+    <div class="modes">
 
-  <script>
-    /*
-      ============================
-      EDIT YOUR PLAYERS HERE
-      ============================
 
-      To add a player, copy one of the lines below.
+        <!-- GAMEMODE 1 -->
 
-      name   = Minecraft username
-      region = player region
-      tier   = SkyWars tier
-    */
+        <div class="mode-card">
 
-    const players = [
-      { name: "Fqxtails",     region: "NA", tier: "LT2" },
-      { name: "ItsDarkingXD",     region: "SA", tier: "HT3" },
-      { name: "Maust111",        region: "NA", tier: "LT3" },
-      { name: "Mrbonkeymutt",      region: "NA", tier: "LT4" },
-    ];
+            <div class="circle">
 
-    function render(list = players) {
-      document.getElementById("players").innerHTML = list.map((player, index) => `
-        <div class="row">
-          <div class="rank">${index + 1}</div>
+                <!--
+                PUT YOUR IMAGE HERE
 
-          <div class="player">
-            <div>
-              <div class="name">${player.name}</div>
-              <div class="sub">SkyWars tier testing</div>
+                Example:
+                src="images/mode1.png"
+                -->
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
             </div>
-          </div>
 
-          <div class="region">${player.region}</div>
+            <h3></h3>
 
-          <div class="tier">${player.tier}</div>
+            <p>
+                Put your text here.
+            </p>
+
         </div>
-      `).join("");
-    }
 
-    function filterPlayers() {
-      const search = document
-        .getElementById("search")
-        .value
-        .toLowerCase();
 
-      const filtered = players.filter(player =>
-        player.name.toLowerCase().includes(search)
-      );
 
-      render(filtered);
-    }
+        <!-- GAMEMODE 2 -->
 
-    render();
-  </script>
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 3 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 4 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 5 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 6 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 7 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 8 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 9 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 10 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 11 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+
+        <!-- GAMEMODE 12 -->
+
+        <div class="mode-card">
+
+            <div class="circle">
+
+                <img
+                    src=""
+                    alt=""
+                >
+
+                <span>
+                    Image
+                </span>
+
+            </div>
+
+            <h3></h3>
+
+            <p>
+                Put your text here.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer id="info">
+
+    SkyWars Tier Testing
+
+</footer>
 
 </body>
 </html>

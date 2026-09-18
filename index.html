@@ -265,8 +265,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 6) {
+          // Slot 7: Red Heart Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">❤️</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 7-12: Standard slots
+          // Slots 8-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

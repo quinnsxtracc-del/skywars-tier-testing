@@ -193,145 +193,41 @@
         ? `<img src="${player.avatar}" alt="">`
         : `<span>◈</span>`;
 
+      const modeLabels = [
+        "skywars",
+        "sword",
+        "axe",
+        "potion",
+        "smp",
+        "tntcart",
+        "UHC",
+        "battlerush",
+        "sumo",
+        "boxing",
+        "crystal",
+        "mace"
+      ];
+
+      const emojis = [
+        "⚪", "⚔️", "🪓", "🧪", "🌳", "🧨", "❤️", "🧊", "☯️", "🥊", "🔮", "🔨"
+      ];
+
       let modes = "";
 
       for (let i = 0; i < 12; i++) {
-        const image = player.images?.[i] || "";
         const tier = player.tiers?.[i] || "";
+        const label = modeLabels[i];
+        const emoji = emojis[i];
 
-        if (i === 0) {
-          // Slot 1: White Circle Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">⚪</span>
-              </div>
-              <div class="tier">${tier}</div>
+        modes += `
+          <div class="mode">
+            <div class="mode-label">${label}</div>
+            <div class="mode-circle">
+              <span class="placeholder">${emoji}</span>
             </div>
-          `;
-        } else if (i === 1) {
-          // Slot 2: Sword Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">⚔️</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 2) {
-          // Slot 3: Axe Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🪓</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 3) {
-          // Slot 4: Potion Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🧪</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 4) {
-          // Slot 5: Deciduous Tree Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🌳</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 5) {
-          // Slot 6: Firecracker Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🧨</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 6) {
-          // Slot 7: Red Heart Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">❤️</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 7) {
-          // Slot 8: Ice Cube Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🧊</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 8) {
-          // Slot 9: Yin and Yang Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">☯️</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 9) {
-          // Slot 10: Boxing Glove Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🥊</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 10) {
-          // Slot 11: Crystal Ball Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🔮</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        } else if (i === 11) {
-          // Slot 12: Hammer Emoji
-          modes += `
-            <div class="mode">
-              <div class="mode-label">text</div>
-              <div class="mode-circle">
-                <span class="placeholder">🔨</span>
-              </div>
-              <div class="tier">${tier}</div>
-            </div>
-          `;
-        }
+            <div class="tier">${tier}</div>
+          </div>
+        `;
       }
 
       row.innerHTML = `

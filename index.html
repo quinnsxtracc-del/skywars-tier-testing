@@ -276,8 +276,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 7) {
+          // Slot 8: Ice Cube Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🧊</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 8-12: Standard slots
+          // Slots 9-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

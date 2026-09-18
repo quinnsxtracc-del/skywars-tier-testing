@@ -91,7 +91,12 @@
       overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12);
       background: #111321; display: grid; place-items: center;
     }
-    .mode-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .mode-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 3px;
+    }
     .mode-circle img[src=""] { display: none; }
     .mode-circle .placeholder { font-size: 13px; color: #666477; }
     .tier { font-size: 11px; font-weight: 900; color: #b89cff; }
@@ -152,34 +157,37 @@
   </footer>
 
   <script>
+    // Path to the provided icon image
+    const iconPath = "skywars_icon.png";
+
     const players = [
       {
         name: "Dreamer",
         region: "NA",
         avatar: "",
         tiers: ["HT1","HT1","HT1","HT1","HT1","HT2","HT2","HT2","HT3","HT3","HT4","LT1"],
-        images: ["","","","","","","","","","","",""]
+        images: [iconPath,"","","","","","","","","","",""]
       },
       {
         name: "SkyKing",
         region: "EU",
         avatar: "",
         tiers: ["HT1","HT1","HT2","HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1"],
-        images: ["","","","","","","","","","","",""]
+        images: [iconPath,"","","","","","","","","","",""]
       },
       {
         name: "Void",
         region: "NA",
         avatar: "",
         tiers: ["HT2","HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1","LT2","LT2"],
-        images: ["","","","","","","","","","","",""]
+        images: [iconPath,"","","","","","","","","","",""]
       },
       {
         name: "Clutch",
         region: "AS",
         avatar: "",
         tiers: ["HT2","HT2","HT3","HT3","HT3","HT4","HT4","LT1","LT1","LT2","LT2","LT3"],
-        images: ["","","","","","","","","","","",""]
+        images: [iconPath,"","","","","","","","","","",""]
       }
     ];
 
@@ -256,4 +264,4 @@
     renderPlayers();
   </script>
 </body>
-</html>'
+</html>

@@ -309,8 +309,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 10) {
+          // Slot 11: Crystal Ball Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🔮</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 11-12: Standard slots
+          // Slot 12: Standard slot
           modes += `
             <div class="mode">
               <div class="mode-circle">

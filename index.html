@@ -243,8 +243,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 4) {
+          // Slot 5: Deciduous Tree Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🌳</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 5-12: Standard slots
+          // Slots 6-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

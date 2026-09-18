@@ -254,8 +254,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 5) {
+          // Slot 6: Firecracker Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🧨</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 6-12: Standard slots
+          // Slots 7-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

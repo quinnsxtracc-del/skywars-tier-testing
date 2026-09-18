@@ -221,8 +221,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 2) {
+          // Slot 3: Axe Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🪓</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 3-12: Standard slots
+          // Slots 4-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">

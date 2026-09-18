@@ -232,8 +232,19 @@
               <div class="tier">${tier}</div>
             </div>
           `;
+        } else if (i === 3) {
+          // Slot 4: Potion Emoji
+          modes += `
+            <div class="mode">
+              <div class="mode-label">text</div>
+              <div class="mode-circle">
+                <span class="placeholder">🧪</span>
+              </div>
+              <div class="tier">${tier}</div>
+            </div>
+          `;
         } else {
-          // Slots 4-12: Standard slots
+          // Slots 5-12: Standard slots
           modes += `
             <div class="mode">
               <div class="mode-circle">
